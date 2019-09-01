@@ -27,9 +27,9 @@ app.use(express.static(__dirname + "/static"));
 
 
 let connection = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
+    host: "localhost",
+    user: "rssnewsapi",
+    password: "PanaSync01!",
     database: "rssnewsapi"
 });
 
@@ -163,9 +163,9 @@ app.post("/login", function (request, response) {
                     connection.query("SELECT * FROM users WHERE username='" + username + "';", function (error, result) {
                         let str = JSON.stringify(result);
                         result = JSON.parse(str);
-
+                    console.log(result);
                         let db_username = result[0].username;
-                        let db_password = result[0].password;
+                        let db_password = result[0].hash;
                         let db_sessid = result[0].sessid;
                         let db_id = result[0].id;
 

@@ -1,0 +1,31 @@
+//my concept of how the DD is laid out
+// will need to play with the column types
+users 
+    userId, 
+    username, 
+    email, 
+    hash, 
+    sessid
+
+queries
+    category, 
+    datetime, 
+    language
+
+keysAPI
+    id, 
+    owner, 
+    name
+    appId
+    keyID
+    permisson??
+
+stories
+    title, 
+    description, 
+    media, 
+    link, 
+    language, 
+    category, 
+    time
+
