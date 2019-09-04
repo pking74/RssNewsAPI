@@ -11,6 +11,7 @@ CREATE TABLE users (
 CREATE TABLE queries (
     ID int NOT NULL AUTO_INCREMENT,
     category varchar(255),
+    owner varchar(255),
     datetime DATETIME,
     language varchar(255),
     PRIMARY KEY (ID)
@@ -21,12 +22,12 @@ CREATE TABLE keysAPI (
     owner varchar(255),
     name varchar(255),
     appId int,
-    keyID int,
-    permisson varchar(255),
+    keyID char(40),
+    permission varchar(255),
     PRIMARY KEY (id)
 );
 
-CREATE TABLE keysAPI (
+CREATE TABLE stories (
     id int NOT NULL AUTO_INCREMENT,
     title varchar(255),
     description varchar(255),

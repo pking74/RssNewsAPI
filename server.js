@@ -163,7 +163,7 @@ app.post("/login", function (request, response) {
                     connection.query("SELECT * FROM users WHERE username='" + username + "';", function (error, result) {
                         let str = JSON.stringify(result);
                         result = JSON.parse(str);
-                    console.log(result);
+                    //console.log(result);
                         let db_username = result[0].username;
                         let db_password = result[0].hash;
                         let db_sessid = result[0].sessid;
@@ -446,11 +446,11 @@ app.post("/renameApiKey", (request, response) => {
 
 app.post("/createApiKey", (request, response) => {
     if (request.session.sessid) {
-        let name = request.body.name
+        let name = request.body.name;
         let owner = request.session.userId;
-        let id = randomValueHex(32);
-
-        connection.query("INSERT INTO keysAPI VALUES (NULL, ?, 1, ?, ?)", [id, owner, name], function (err, result) {
+        let keyID = randomValueHex(32);
+        //console.log(owner);
+        connection.query("INSERT INTO keysAPI VALUES (NULL, ?, ?, 1, ?, 1)", [owner, name, keyID], function (err, result) {
             if (err) {
                 console.log(err)
             } else {
